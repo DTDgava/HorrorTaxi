@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
-    public GameObject prefabflashLight;
+    public GameObject trigger;
     public GameObject mainFlashLight;
     public GameObject light1;
 
@@ -15,11 +15,11 @@ public class FlashLight : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && light1.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.F) && light1.activeSelf == false)
         {
             light1.SetActive(true);
         }
-        else if (Input.GetMouseButtonDown(1) && light1.activeSelf == true)
+        else if (Input.GetKeyDown(KeyCode.F) && light1.activeSelf == true)
         {
             light1.SetActive(false);
         }
@@ -30,7 +30,7 @@ public class FlashLight : MonoBehaviour
     {
         if(other.transform.tag == "Flash" && Input.GetKey(KeyCode.E))
         {
-            prefabflashLight.SetActive(false);
+            trigger.SetActive(false);
             mainFlashLight.SetActive(true);
         }
     }
