@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -70,3 +70,23 @@ imba/Logs/shadercompiler-UnityShaderCompiler.exe1.log
 imba/Logs/shadercompiler-UnityShaderCompiler.exe2.log
 imba/Temp/UnityLockfile
 imba/Temp/workerlic
+imba/Library/ArtifactDB
+imba/Library/Artifacts/97/97c17fb122d2bdc110339408aec3f851
+imba/Library/Artifacts/b7/b714254c94c77f451182bc432cdd0312
+imba/Library/Artifacts/d3/d3114a90e8a422861024fa60a1579016
+imba/Library/Artifacts/e4/e4dd5afd42101ea67051c5231298b6f3
+imba/Library/Artifacts/f8/f81173b273ed6cbb2bfd230bf84b20d5
+imba/Library/PackageManager/ProjectCache
+imba/Library/PackageManager/ProjectCache.md5
+imba/Library/SourceAssetDB
+imba/Library/Style.catalog
+imba/Logs/AssetImportWorker0.log
+imba/Logs/shadercompiler-AssetImportWorker0.log
+imba/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+imba/Logs/shadercompiler-UnityShaderCompiler.exe1.log
+imba/Logs/shadercompiler-UnityShaderCompiler.exe2.log
+imba/Logs/shadercompiler-UnityShaderCompiler.exe3.log
+imba/Temp/Assembly-CSharp.dll.hash
+imba/Temp/CompilationLog.txt
+imba/Temp/UnityTempFile-4d6b2aff08f01434fa2d2b4255509208
+imba/Temp/UnityTempFile-aff277c77196547418522f8a9925acf4
