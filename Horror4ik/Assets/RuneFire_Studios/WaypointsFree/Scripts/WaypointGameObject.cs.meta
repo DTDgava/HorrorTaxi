@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Horror4ik/Assets/RuneFire_Studios/WaypointsFree/Scripts/WaypointGameObject.cs.meta
 guid: 7e01d8b0e8ced7144a50f785fbdfd217
+========
+guid: 2c9625c5b7836584397b59b00907d6dc
+>>>>>>>> parent of 61d8ce5 (Batko nas? ebas):Horror4ik/Assets/RuneFire_Studios/WaypointsFree/Scripts/WaypointsGroup.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
