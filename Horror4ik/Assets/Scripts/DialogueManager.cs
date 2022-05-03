@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     public Animator Ded;
     public Animator animator;
     public GameObject TriggerDed;
-
+    public Dialouge dialouge;
+    public GameObject CatScene;
     void Start()
     {
         sentences = new Queue<string> ();
@@ -25,8 +26,8 @@ public class DialogueManager : MonoBehaviour
     {
         if(other.transform.tag == "Dialouge1")
         {
+            CatScene.SetActive(true);
             startDialouge.SetActive(true);
-            animator.SetBool("isOpen", true);
 
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -34,20 +35,33 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialouge(Dialouge dialouge) 
     {
-
+        animator.SetBool("isOpen", true);
         nameText.text = dialouge.name;
 
         sentences.Clear();
 
         foreach(string sentece in dialouge.sentences)
         {
-            sentences.Enqueue (sentece); 
+            sentences.Enqueue(sentece); 
         }
 
         DisplayNextSentence();
+        startDialouge.SetActive(false);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayNextSentence();
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartDialouge(dialouge);
+        }
     }
     public void DisplayNextSentence()
     {
+        Debug.Log("snus");
         if(sentences.Count == 0)
         {
             EndDialouge();
@@ -64,7 +78,8 @@ public class DialogueManager : MonoBehaviour
         startDialouge.SetActive(false);
         animator.SetBool("isOpen", false);
         Cursor.lockState = CursorLockMode.Locked;
-        Destroy(TriggerDed);
+        TriggerDed.SetActive(false);
+        CatScene.SetActive(false);
     }
    
 }
