@@ -10,12 +10,15 @@ public class DialogueManager : MonoBehaviour
     public Text dialougeText;
     public GameObject startDialouge;
 
+    public Animator Ded;
     public Animator animator;
+    public GameObject TriggerDed;
 
     void Start()
     {
         sentences = new Queue<string> ();
         startDialouge.SetActive(false);
+        TriggerDed.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         startDialouge.SetActive(false);
         animator.SetBool("isOpen", false);
         Cursor.lockState = CursorLockMode.Locked;
+        Destroy(TriggerDed);
     }
    
 }
