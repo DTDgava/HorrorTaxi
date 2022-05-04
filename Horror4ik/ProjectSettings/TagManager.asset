@@ -8,6 +8,8 @@ TagManager:
   - Sleep
   - SceneLoader
   - Dialouge1
+  - StartDialougeDed
+  - Note
   layers:
   - Default
   - TransparentFX

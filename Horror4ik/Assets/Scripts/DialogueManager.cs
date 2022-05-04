@@ -15,10 +15,15 @@ public class DialogueManager : MonoBehaviour
     public GameObject TriggerDed;
     public Dialouge dialouge;
     public GameObject CatScene;
+    public FirstPersonController Player;
+    public Transform move;
+    public CheckPos CheckPos;
+    bool Cantalk;
+    bool needcheck = true;
+
     void Start()
     {
         sentences = new Queue<string>();
-        startDialouge.SetActive(false);
         TriggerDed.SetActive(true);
         dialougeText.gameObject.SetActive(false);
     }
@@ -28,14 +33,12 @@ public class DialogueManager : MonoBehaviour
         if (other.transform.tag == "Dialouge1")
         {
             CatScene.SetActive(true);
-            startDialouge.SetActive(true);
-
-            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
     public void StartDialouge(Dialouge dialouge)
     {
+        Player.enabled = false;
         dialougeText.gameObject.SetActive(true);
         animator.SetBool("isOpen", true);
         nameText.text = dialouge.name;
@@ -48,11 +51,16 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
-        startDialouge.SetActive(false);
+        Cantalk = false;
+        needcheck = false;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) & startDialouge.gameObject.activeSelf == true)
+        if (needcheck == true)
+        {
+            Cantalk = CheckPos.CanTalk;
+        }
+        if (Cantalk == true)
         {
             StartDialouge(dialouge);
         }
@@ -63,7 +71,6 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        Debug.Log("snus");
         if (sentences.Count == 0)
         {
             EndDialouge();
@@ -76,13 +83,12 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialouge()
     {
+        CatScene.SetActive(false);
         dialougeText.gameObject.SetActive(false);
-        Debug.Log("End dialouge");
-        startDialouge.SetActive(false);
         animator.SetBool("isOpen", false);
-        Cursor.lockState = CursorLockMode.Locked;
         TriggerDed.SetActive(false);
         CatScene.SetActive(false);
+        Player.enabled = true;
     }
 
 }
