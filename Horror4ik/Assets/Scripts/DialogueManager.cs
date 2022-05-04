@@ -17,14 +17,15 @@ public class DialogueManager : MonoBehaviour
     public GameObject CatScene;
     void Start()
     {
-        sentences = new Queue<string> ();
+        sentences = new Queue<string>();
         startDialouge.SetActive(false);
         TriggerDed.SetActive(true);
+        dialougeText.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Dialouge1")
+        if (other.transform.tag == "Dialouge1")
         {
             CatScene.SetActive(true);
             startDialouge.SetActive(true);
@@ -33,16 +34,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialouge(Dialouge dialouge) 
+    public void StartDialouge(Dialouge dialouge)
     {
+        dialougeText.gameObject.SetActive(true);
         animator.SetBool("isOpen", true);
         nameText.text = dialouge.name;
 
         sentences.Clear();
 
-        foreach(string sentece in dialouge.sentences)
+        foreach (string sentece in dialouge.sentences)
         {
-            sentences.Enqueue(sentece); 
+            sentences.Enqueue(sentece);
         }
 
         DisplayNextSentence();
@@ -50,19 +52,19 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            DisplayNextSentence();
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E) & startDialouge.gameObject.activeSelf == true)
         {
             StartDialouge(dialouge);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) & dialougeText.gameObject.activeSelf == true)
+        {
+            DisplayNextSentence();
         }
     }
     public void DisplayNextSentence()
     {
         Debug.Log("snus");
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialouge();
             return;
@@ -74,6 +76,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialouge()
     {
+        dialougeText.gameObject.SetActive(false);
         Debug.Log("End dialouge");
         startDialouge.SetActive(false);
         animator.SetBool("isOpen", false);
@@ -81,5 +84,5 @@ public class DialogueManager : MonoBehaviour
         TriggerDed.SetActive(false);
         CatScene.SetActive(false);
     }
-   
+
 }
