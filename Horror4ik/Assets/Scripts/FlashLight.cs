@@ -14,8 +14,8 @@ public class FlashLight : MonoBehaviour
     private void Start()
     {
         light1.SetActive(false);
-        pressE.SetActive(false);
-        mainFlashLight.SetActive(false);
+
+ 
     }
 
     private void Update()

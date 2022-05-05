@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nazikgavno.unity
     guid: b8c8d4ffe11420544909ac3e94b98099
+  - enabled: 1
+    path: Assets/Scenes/3Scene.unity
+    guid: 0d3a3b9d25ef76e48bc6192b892f910c
   m_configObjects: {}
