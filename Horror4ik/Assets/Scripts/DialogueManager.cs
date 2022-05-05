@@ -20,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     public CheckPos CheckPos;
     bool Cantalk;
     bool needcheck = true;
+    [SerializeField] public Doors door;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         if (other.transform.tag == "Dialouge1")
         {
             CatScene.SetActive(true);
+            door.Key = true;
         }
     }
 

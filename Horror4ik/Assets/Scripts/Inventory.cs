@@ -61,6 +61,7 @@ public class Inventory : MonoBehaviour
         {
             ReadNote.SetActive(false);
             InTrigger = false;
+            Note.SetActive(false);
         }
     }
 }
