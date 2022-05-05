@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialouge(Dialouge dialouge)
     {
-        Player.enabled = false;
+        Player.playerCanMove = false;
         dialougeText.gameObject.SetActive(true);
         animator.SetBool("isOpen", true);
         nameText.text = dialouge.name;
@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         TriggerDed.SetActive(false);
         CatScene.SetActive(false);
-        Player.enabled = true;
+        Player.playerCanMove = true;
     }
 
 }

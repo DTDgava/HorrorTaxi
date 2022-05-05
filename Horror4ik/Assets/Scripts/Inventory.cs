@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) & ReadNote.activeSelf == true)
             {
                 Note.SetActive(true);
-                FRCPlayer.enabled = false;
+                FRCPlayer.playerCanMove = false;
                 ReadNote.SetActive(false);
             }
             if (Note.activeSelf == true)
@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Note.SetActive(false);
-                    FRCPlayer.enabled = true;
+                    FRCPlayer.playerCanMove = true;
                     ReadNote.SetActive(true);
                 }
                 if (Input.GetKeyDown(KeyCode.R))
